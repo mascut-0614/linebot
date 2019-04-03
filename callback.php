@@ -14,7 +14,7 @@ if($type=="message"){
             'type' => 'text',
             'text' => '【'.$msg_text.'】かぁ〜');
 }
-$postdata=array('replyToken'=>$reply_token,'messages'=>array($massage));
+$postdata=array('replyToken'=>$reply_token,'messages'=>array($message));
 error_log(json_encode($postdata));
 $ch = curl_init('https://api.line.me/v2/bot/message/reply');
 curl_setopt($ch, CURLOPT_POST, true);
