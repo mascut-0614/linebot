@@ -1,4 +1,3 @@
-This is mascut's linebot!
 <?php
 $access_token='1N3AcyxVAGjcEX7jYzAuRLTbyhCFH84ZOZSvoVogPgIa0VqnJg+eh7q9MrsWUeFKKj1oDSB1qMznR7D66RAiqncYuxrGLnncaGyBG4rR1YJe4Kedi0inAp/eUH8YRIsP3nt/00MzSru9ClXdH17EKwdB04t89/1O/w1cDnyilFU='
 
