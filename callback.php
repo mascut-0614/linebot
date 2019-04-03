@@ -9,7 +9,7 @@ $type = $json_obj->{'events'}[0]->{'type'};
 
 if($type=="message"){
         $msg_text=$json_obj->{'events'}[0]->{'message'}->{'text'};
-        file_put_contents('log.txt',$msg_text);
+        echo $msg_text;
         $message = array(
             'type' => 'text',
             'text' => '【'.$msg_text.'】かぁ〜');
