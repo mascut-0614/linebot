@@ -9,12 +9,13 @@ $type = $json_obj->{'events'}[0]->{'type'};
 
 if($type=="message"){
         $msg_text=$json_obj->{'events'}[0]->{'message'}->{'text'};
-        echo $msg_text;
+        error_log($msg_text);
         $message = array(
             'type' => 'text',
             'text' => '【'.$msg_text.'】かぁ〜');
 }
 $postdata=array('replyToken'=>$reply_token,'messages'=>array($massage));
+error_log(json_encode($postdata));
 $ch = curl_init('https://api.line.me/v2/bot/message/reply');
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
@@ -22,5 +23,6 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($postdata));
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json; charser=UTF-8','Authorization: Bearer ' . $access_token));
 $result = curl_exec($ch);
+error_log($result);
 curl_close($ch);
 ?>
