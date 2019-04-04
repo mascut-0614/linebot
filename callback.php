@@ -1,5 +1,6 @@
 <?php
 $access_token='1N3AcyxVAGjcEX7jYzAuRLTbyhCFH84ZOZSvoVogPgIa0VqnJg+eh7q9MrsWUeFKKj1oDSB1qMznR7D66RAiqncYuxrGLnncaGyBG4rR1YJe4Kedi0inAp/eUH8YRIsP3nt/00MzSru9ClXdH17EKwdB04t89/1O/w1cDnyilFU=';
+require_once('./database.php');
 $json_str=file_get_contents('php://input');
 $json_obj = json_decode($json_str);
 
@@ -12,7 +13,8 @@ if($type=="message"){
         error_log($msg_text);
         $message = array(
             'type' => 'text',
-            'text' => '【'.$msg_text.'】かぁ〜');
+	    'text' => '【'.$msg_text.'】かぁ〜');
+	insert_database($msg_text,1);
 }
 $postdata=array('replyToken'=>$reply_token,'messages'=>array($message));
 error_log(json_encode($postdata));
